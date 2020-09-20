@@ -1,10 +1,4 @@
 # mLAMA: multilingual LAnguage Model Analysis
-conda create -n lm_meaning python=3.7 anaconda
-conda activate lm_meaning
-
-add project to path:
-
-export PYTHONPATH=${PYTHONPATH}:/path-to-project
 
 ## Reference:
 
@@ -39,6 +33,10 @@ conda create -n lama37 -y python=3.7 && conda activate lama37
 pip install -r requirements.txt
 ```
 
+add project to path:
+
+export PYTHONPATH=${PYTHONPATH}:/path-to-project
+
 ### 2. Download the data
 
 ```bash
@@ -70,6 +68,7 @@ If you are interested in a particular model please edit the script.
 
 ```bash
 python scripts/run_experiments_mBERT_ranked.py 
+python eval/mBERT_ranked.py
 ```
 ## Acknowledgements
 

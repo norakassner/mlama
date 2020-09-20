@@ -168,7 +168,6 @@ def filter_samples(model, samples, vocab_subset, max_sentence_length, template):
                 recostructed_word = " ".join(
                     [model.vocab[x] for x in obj_label_ids]
                 ).strip()
-                #recostructed_word = model.vocab[obj_label_ids[0]]
             else:
                 recostructed_word = None
 
