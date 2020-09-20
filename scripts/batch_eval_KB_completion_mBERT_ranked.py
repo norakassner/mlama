@@ -441,26 +441,9 @@ def main(args, NUM_MASK, candidates, shuffle_data=True, model=None):
     pool.close()
     pool.join()
 
-    # stats
-    # Mean reciprocal rank
-    num_samples = len(list_of_results)
-    if num_samples == 0:
-        num_samples = 1.0
-    MRR /= num_samples
-
-    # Precision
-    Precision /= num_samples
-    Precision1 /= num_samples
-
-    msg = "all_samples: {}\n".format(len(all_samples))
-    msg += "list_of_results: {}\n".format(len(list_of_results))
-
-    logger.info("\n" + msg + "\n")
-    print("\n" + msg + "\n")
-
     # dump pickle with the result of the experiment
     all_results = dict(
-        list_of_results=list_of_results, global_MRR=MRR, global_P_at_10=Precision
+        list_of_results=list_of_results
     )
     with open("{}/result.pkl".format(log_directory), "wb") as f:
         pickle.dump(all_results, f)
