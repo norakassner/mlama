@@ -87,7 +87,7 @@ def print_sentence_predictions(log_probs, token_ids, vocab,
     excluded_indices = __exclude_tokens([t for t in token_ids], vocab)
 
     # score only first mask
-    masked_indices = masked_indices[:1]
+    #masked_indices = masked_indices[:1]
 
     tokens = torch.from_numpy(np.asarray(token_ids))
 
