@@ -10,7 +10,7 @@ This repository contains code for the EACL 2021 paper:
   year={2019}
 }
 ```
-It extends the original LAMA probe to the multilingual setting. 
+It extends the original LAMA probe to the multilingual setting, e.g. it probes knowledge in pre-trained language models in a multilingual setting.
 
 The repository is forked from https://github.com/facebookresearch/LAMA and adapted accordingly. 
 
@@ -81,7 +81,7 @@ python eval/mBERT_ranked.py
 * [https://github.com/huggingface/pytorch-pretrained-BERT](https://github.com/huggingface/pytorch-pretrained-BERT)
 * [https://github.com/allenai/allennlp](https://github.com/allenai/allennlp)
 * [https://github.com/pytorch/fairseq](https://github.com/pytorch/fairseq)
-
+* [https://github.com/facebookresearch/LAMA)
 
 ## Other References
 
