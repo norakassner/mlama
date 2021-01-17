@@ -57,7 +57,7 @@ def run_experiments(
             "common_vocab_filename": None,
             "template": "",
             "bert_vocab_name": "vocab.txt",
-            "batch_size": 1,
+            "batch_size": 100,
             "logdir": "output",
             "full_logdir": "output/results/{}/{}/{}".format(
                 input_param["label"], language, relation["relation"]
@@ -172,7 +172,6 @@ if __name__ == "__main__":
             languages.append(line.strip())
 
     print("Multilingual")
-    languages = ["en"]
     for l in languages:
        parameters = get_MultiLingual_parameters(language=l)
        run_all_LMs(parameters)

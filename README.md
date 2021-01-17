@@ -1,5 +1,17 @@
 # mLAMA: multilingual LAnguage Model Analysis
 
+This repository contains code for the EACL 2021 paper:
+
+```bibtex
+@inproceedings{petroni2019language,
+  title={Language Models as Knowledge Bases?},
+  author={F. Petroni, T. Rockt{\"{a}}schel, A. H. Miller, P. Lewis, A. Bakhtin, Y. Wu and S. Riedel},
+  booktitle={In: Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing (EMNLP), 2019},
+  year={2019}
+}
+```
+
+It is forked from https://github.com/facebookresearch/LAMA and adapted accordingly. 
 ## Reference:
 
 The LAMA probe is described in the following papers:
