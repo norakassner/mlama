@@ -27,7 +27,7 @@ The original LAMA probe is described in the following paper:
 }
 ```
 
-## The LAMA probe
+## The mLAMA probe
 
 To reproduce our results:
 
