@@ -51,26 +51,7 @@ unzip data.zip
 rm data.zip
 ```
 
-### 3. Download the models
-
-#### DISCLAIMER: ~55 GB on disk
-
-Install spacy model
-```bash
-python3 -m spacy download en
-```
-
-Download the models
-```bash
-chmod +x download_models.sh
-./download_models.sh
-```
-
-The script will create and populate a _pre-trained_language_models_ folder.
-If you are interested in a particular model please edit the script.
-
-
-### 4. Run the experiments
+### 3. Run the experiments
 
 ```bash
 python scripts/run_experiments_mBERT_ranked.py 
