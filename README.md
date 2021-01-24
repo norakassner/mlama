@@ -1,31 +1,9 @@
 # mLAMA: multilingual LAnguage Model Analysis
 
-This repository contains code for the EACL 2021 paper:
-
-```bibtex
-@inproceedings{petroni2019language,
-  title={Language Models as Knowledge Bases?},
-  author={F. Petroni, T. Rockt{\"{a}}schel, A. H. Miller, P. Lewis, A. Bakhtin, Y. Wu and S. Riedel},
-  booktitle={In: Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing (EMNLP), 2019},
-  year={2019}
-}
-```
+This repository contains code for the EACL 2021 paper ["Multilingual LAMA: Investigating Knowledge in Multilingual Pretrained Language Models"](xxx).
 It extends the original LAMA probe to the multilingual setting, e.g. it probes knowledge in pre-trained language models in a multilingual setting.
 
 The repository is forked from https://github.com/facebookresearch/LAMA and adapted accordingly. 
-
-## Reference:
-
-The original LAMA probe is described in the following paper:
-
-```bibtex
-@inproceedings{petroni2019language,
-  title={Language Models as Knowledge Bases?},
-  author={F. Petroni, T. Rockt{\"{a}}schel, A. H. Miller, P. Lewis, A. Bakhtin, Y. Wu and S. Riedel},
-  booktitle={In: Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing (EMNLP), 2019},
-  year={2019}
-}
-```
 
 ## The mLAMA probe
 
@@ -45,9 +23,10 @@ export PYTHONPATH=${PYTHONPATH}:/path-to-project
 
 ### 2. Download the data
 
+
 ```bash
-wget https://dl.fbaipublicfiles.com/LAMA/data.zip
-unzip data.zip
+wget http://cistern.cis.lmu.de/mlama/mlama.zip
+unzip mlama.zip
 rm data.zip
 ```
 
@@ -57,6 +36,31 @@ rm data.zip
 python scripts/run_experiments_mBERT_ranked.py 
 python eval/mBERT_ranked.py
 ```
+
+## Reference:
+
+The original LAMA probe is described in the following paper:
+
+```bibtex
+@inproceedings{kassner2021multilingual,
+    title = "Multilingual {LAMA}: Investigating Knowledge in Multilingual Pretrained Language Models",
+    author = {Kassner, Nora  and
+      Dufter, Philipp  and
+      Sch{\"u}tze, Hinrich},
+    booktitle = "to appear in Proceedings of he 16th Conference of the European Chapter of the Association for Computational Linguistics",
+    year = "2021",
+    address = "Online",
+    publisher = "Association for Computational Linguistics",
+}
+
+@inproceedings{petroni2019language,
+  title={Language Models as Knowledge Bases?},
+  author={F. Petroni, T. Rockt{\"{a}}schel, A. H. Miller, P. Lewis, A. Bakhtin, Y. Wu and S. Riedel},
+  booktitle={In: Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing (EMNLP), 2019},
+  year={2019}
+}
+```
+
 ## Acknowledgements
 
 * [https://github.com/huggingface/pytorch-pretrained-BERT](https://github.com/huggingface/pytorch-pretrained-BERT)
