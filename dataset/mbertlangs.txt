@@ -1,0 +1,105 @@
+wiki	name	iso	googletranslate
+af	Afrikaans	afr	af
+sq	Albanian	sqi	sq
+ar	Arabic	ara,arb	ar
+an	Aragonese	arg	
+hy	Armenian	hye	hy
+ast	Asturian	ast	
+az	Azerbaijani	aze	az
+ba	Bashkir	bak	
+eu	Basque	eus	eu
+bar	Bavarian	bar	
+be	Belarusian	bel	be
+bn	Bengali	ben	bn
+bpy	Bishnupriya Manipuri	bpy	
+bs	Bosnian	bos	bs
+br	Breton	bre	
+bg	Bulgarian	bul	bg
+my	Burmese	mya	
+ca	Catalan	cat	ca
+ceb	Cebuano	ceb	ceb
+ce	Chechen	che	
+zh	Chinese (Simplified)	zho	zh-CN
+zh-classical	Chinese (Traditional)	lzh	zh-TW
+cv	Chuvash	chv	
+hr	Croatian	hrv	hr
+cs	Czech	ces	cs
+da	Danish	dan	da
+nl	Dutch	nld	nl
+en	English	eng	en
+et	Estonian	est	et
+fi	Finnish	fin	fi
+fr	French	fra	fr
+gl	Galician	glg	gl
+ka	Georgian	kat	ka
+de	German	deu	de
+el	Greek	ell	el
+gu	Gujarati	guj	gu
+ht	Haitian	hat	ht
+he	Hebrew	heb	he
+hi	Hindi	hin	hi
+hu	Hungarian	hun	hu
+is	Icelandic	isl	is
+io	Ido	ido	
+id	Indonesian	ind	id
+ga	Irish	gle	ga
+it	Italian	ita	it
+ja	Japanese	jpn	ja
+jv	Javanese	jav	jv
+kn	Kannada	kan	kn
+kk	Kazakh	kaz	kk
+ky	Kirghiz	kir	
+ko	Korean	kor	ko
+la	Latin	lat	la
+lv	Latvian	lav	lv
+lt	Lithuanian	lit	lt
+lmo	Lombard	lmo	
+nds	Low Saxon	nds	
+lb	Luxembourgish	ltz	lb
+mk	Macedonian	mkd	mk
+mg	Malagasy	mlg,plt	mg
+ms	Malay	msa	ms
+ml	Malayalam	mal	ml
+mr	Marathi	mar	mr
+min	Minangkabau	min	
+ne	Nepali	nep	ne
+new	Newar	new	
+no	Norwegian (Bokmal)	nob	no
+nn	Norwegian (Nynorsk)	nno	
+oc	Occitan	oci	
+fa	Persian (Farsi)	fas,pes	fa
+pms	Piedmontese	pms	
+pl	Polish	pol	pl
+pt	Portuguese	por	pt
+pa	Punjabi	pan	pa
+ro	Romanian	ron	ro
+ru	Russian	rus	ru
+sco	Scots	sco	
+sr	Serbian	srp	sr
+sh	Serbo-Croatian	hbs,srp,hrv	
+scn	Sicilian	scn	
+sk	Slovak	slk	sk
+sl	Slovenian	slv	sl
+azb	South Azerbaijani	azb	
+es	Spanish	spa	es
+su	Sundanese	sun	su
+sw	Swahili	swh	sw
+sv	Swedish	swe	sv
+tl	Tagalog	tgl	tl
+tg	Tajik	tgk	tg
+ta	Tamil	tam	ta
+tt	Tatar	tat	tt
+te	Telugu	tel	te
+tr	Turkish	tur	tr
+uk	Ukrainian	ukr	uk
+ur	Urdu	urd	ur
+uz	Uzbek	uzb	uz
+vi	Vietnamese	vie	vi
+vo	Volapük	vol	
+war	Waray-Waray	war	
+cy	Welsh	cym	cy
+fy	West Frisian	fry	fy
+pnb	Western Punjabi	pnb,pan	
+yo	Yoruba	yor	yo
+th	Thai	tha	th
+mn	Mongolian	mon,khk	

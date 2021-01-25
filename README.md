@@ -37,6 +37,16 @@ python scripts/run_experiments_mBERT_ranked.py
 python eval/mBERT_ranked.py
 ```
 
+## The dataset
+
+Code to recreate the dataset can be found in the folder `dataset`. 
+
+We provide a class to read in the dataset in `dataset/reader.py`. Example for reading the data: 
+```python
+ml = MLama("data/mlama/")
+ml.load()
+```
+
 ## Reference:
 
 The original LAMA probe is described in the following paper:
