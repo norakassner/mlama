@@ -23,6 +23,7 @@ python translate_trex.py \
 
 
 # 3. Translate GoogleRE
+# You will need a valid Google Knowledge Graph API key in the environment variable `GOOGLEAPIKEY for this section
 mv ${WORKDIR}/data/Google_RE/date_of_birth_test.jsonl ${WORKDIR}/data/Google_RE/date_of_birth.jsonl
 mv ${WORKDIR}/data/Google_RE/place_of_birth_test.jsonl ${WORKDIR}/data/Google_RE/place_of_birth.jsonl
 mv ${WORKDIR}/data/Google_RE/place_of_death_test.jsonl ${WORKDIR}/data/Google_RE/place_of_death.jsonl
