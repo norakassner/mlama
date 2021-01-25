@@ -1,3 +1,0 @@
-wiki	name	iso	googletranslate
-af	Afrikaans	afr	af
-fr	French	fra	fr

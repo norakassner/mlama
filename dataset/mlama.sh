@@ -19,7 +19,7 @@ python translate_trex.py \
 --data ${WORKDIR}/data/TREx \
 --entities ${WORKDIR}/data/wikidata_entities \
 --outpath ${WORKDIR}/data/multilingual \
---languagemapping mbertlangsmall.txt
+--languagemapping mbertlangs.txt
 
 
 # 3. Translate GoogleRE
@@ -34,7 +34,7 @@ do
 	--inputpath ${WORKDIR}/data/Google_RE \
 	--relation ${relation} \
 	--outpath ${WORKDIR}/data/multilingual \
-	--languagemapping mbertlangsmall.txt
+	--languagemapping mbertlangs.txt
 done
 
 # 4.1. Translate Templates TREx
@@ -42,7 +42,7 @@ mkdir -p ${WORKDIR}/data/multilingual/templates_original
 python translate_templates.py translate \
 	--templates ${WORKDIR}/data/relations.jsonl \
 	--outfile ${WORKDIR}/data/multilingual/templates_original \
-	--languagemapping mbertlangsmall.txt
+	--languagemapping mbertlangs.txt
 
 
 # 4.2. Translate Templates GoogleRE
@@ -50,7 +50,7 @@ python translate_templates.py translate \
 python translate_templates.py translate \
 	--templates ${WORKDIR}/data/relations_googlere.jsonl \
 	--outfile ${WORKDIR}/data/multilingual/templates_original \
-	--languagemapping mbertlangsmall.txt
+	--languagemapping mbertlangs.txt
 
 # 4.3. Clean Templates in place
 cp -r ${WORKDIR}/data/multilingual/templates_original ${WORKDIR}/data/multilingual/templates
