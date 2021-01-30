@@ -44,9 +44,9 @@ def run_experiments(
     model = None
     pp = pprint.PrettyPrinter(width=41, compact=True)
     if "P" in relations[0]["relation"]:
-        object_path = "/mounts/work/philipp/lama/data/TREx_multilingual/objects/" + language + ".json"
+        object_path = "./data/TREx_multilingual/objects/" + language + ".json"
     else:
-        object_path = "data/GoogleRE_objects/" + language + ".json"
+        object_path = "./data/GoogleRE_objects/" + language + ".json"
 
     with open(object_path) as f:
         candidates = json.load(f)
@@ -134,27 +134,14 @@ def get_GoogleRE_parameters():
     return relations, data_path_pre, data_path_post
 
 
-def get_ConceptNet_parameters(data_path_pre="data/"):
-    relations = [{"relation": "test"}]
-    data_path_pre += "ConceptNet/"
-    data_path_post = ".jsonl"
-    return relations, data_path_pre, data_path_post
-
-
-def get_Squad_parameters(data_path_pre="data/"):
-    relations = [{"relation": "test"}]
-    data_path_pre += "Squad/"
-    data_path_post = ".jsonl"
-    return relations, data_path_pre, data_path_post
-
-def get_MultiLingual_parameters(data_path_pre="/mounts/work/philipp/lama/data/TREx_multilingual/", language=""):
+def get_MultiLingual_parameters_TREx(data_path_pre="./data/TREx_multilingual/", language=""):
     relations = load_file("{}templates/relations_{}.jsonl".format(data_path_pre, language))
     data_path_pre += language + "/"
     data_path_post = ".jsonl"
     return relations, data_path_pre, data_path_post, language
 
 
-def get_MultiLingual_parameters_GoogleRe(data_path_pre="/mounts/work/philipp/lama/data/Google_RE_multilingual/", language=""):
+def get_MultiLingual_parameters_GoogleRe(data_path_pre="./data/Google_RE_multilingual/", language=""):
     relations = load_file("{}templates/relations_{}.jsonl".format(data_path_pre, language))
     data_path_pre += language + "/"
     data_path_post = "_test.jsonl"
@@ -174,13 +161,9 @@ if __name__ == "__main__":
         for line in f:
             languages.append(line.strip())
 
-    languages = ["hu", "ur","hy","sr","ms","bn","es","he","et","nl","eu","ga","fr","sq","sv","hi","hr","ru","el","it","tr","fa","uk","ar","en","az", "ca"]
-    languages = ["fa","uk","ar","en","az", "ca"]
-    languages = languages[::-1]
     print("Multilingual")
     for l in languages:
-        #if not os.path.isdir("output/results/mbert_base/" + l):
-        parameters = get_MultiLingual_parameters(language=l)
+        parameters = get_MultiLingual_parameters_TREx(language=l)
         run_all_LMs(parameters)
-        #parameters = get_MultiLingual_parameters_GoogleRe(language=l)
-        #run_all_LMs(parameters)
+        parameters = get_MultiLingual_parameters_GoogleRe(language=l)
+        run_all_LMs(parameters)

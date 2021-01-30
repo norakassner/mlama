@@ -330,11 +330,8 @@ def main(args, NUM_MASK, candidates, shuffle_data=True, model=None):
         all_samples = []
         for fact in facts:
             (sub, obj, uuid) = fact
-            sample = {}
-            sample["sub_label"] = sub
-            sample["obj_label"] = obj
-            sample["uuid"] = uuid
-            # sobstitute all sentences with a standard template
+            sample = {"sub_label": sub, "obj_label": obj, "uuid": uuid}
+            # substitute all sentences with a standard template
             sample["masked_sentences"] = parse_template(
                 args.template.strip(), sample["sub_label"].strip(), base.MASK
             )
@@ -359,12 +356,13 @@ def main(args, NUM_MASK, candidates, shuffle_data=True, model=None):
     for i in tqdm(range(len(samples_batches))):
 
         samples_b = samples_batches[i]
+        print(samples_b)
         # sentences_b = sentences_batches[i]
         masked_sentences = []
         sentences_b = []
         for num_mask in range(1, NUM_MASK+1):
             for sentence in samples_b[0]["masked_sentences"]:
-                sentence = sentence.replace(base.MASK, (base.MASK)*num_mask)
+                sentence = sentence.replace(base.MASK, base.MASK * num_mask)
                 sentence = sentence.replace("][", "] [")
                 masked_sentences.append(sentence)
                 sentences_b.append([sentence])
@@ -427,13 +425,9 @@ def main(args, NUM_MASK, candidates, shuffle_data=True, model=None):
 
             sample = samples_b[idx]
 
-            element = {}
-            element["sample"] = sample
-            element["uuid"] = sample["uuid"]
-            element["token_ids"] = token_ids_list[0]
-            element["masked_indices"] = masked_indices_list[0]
-            element["label_index"] = label_index_list[0]
-            element["masked_topk"] = result_masked_topk
+            element = {"sample": sample, "uuid": sample["uuid"], "token_ids": token_ids_list[0],
+                       "masked_indices": masked_indices_list[0], "label_index": label_index_list[0],
+                       "masked_topk": result_masked_topk}
 
             list_of_results.append(element)
 
