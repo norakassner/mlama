@@ -13,7 +13,7 @@ To reproduce our results:
 
 (optional) It might be a good idea to use a separate conda environment. It can be created by running:
 ```
-conda create -n lama37 -y python=3.7 && conda activate lama37
+conda create -n mlama -y python=3.7 && conda activate mlama
 pip install -r requirements.txt
 ```
 
@@ -34,7 +34,7 @@ rm data.zip
 
 ```bash
 python scripts/run_experiments_mBERT_ranked.py 
-python eval/mBERT_ranked.py
+python scripts/eval.py
 ```
 
 ## The dataset

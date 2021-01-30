@@ -7,7 +7,7 @@
 import argparse
 from batch_eval_KB_completion_mBERT_ranked import main as run_evaluation
 from batch_eval_KB_completion_mBERT_ranked import load_file
-from lama.modules import build_model_by_name
+from mlama.modules import build_model_by_name
 import pprint
 import statistics
 from os import listdir
@@ -28,6 +28,16 @@ LMs = [
 ]
 
 
+"""LMs = [
+    {
+        "lm": "bert",
+        "label": "bert_base",
+        "models_names": ["bert"],
+        "bert_model_name": "bert-base-cased",
+        "bert_model_dir": None
+    },
+]"""
+
 def run_experiments(
     relations,
     data_path_pre,
@@ -43,8 +53,11 @@ def run_experiments(
 ):
     model = None
     pp = pprint.PrettyPrinter(width=41, compact=True)
+    if "P" in relations[0]["relation"]:
+        object_path = "/mounts/work/philipp/lama/data/TREx_multilingual/objects/" + language + ".json"
+    else:
+        object_path = "data/GoogleRE_objects/" + language + ".json"
 
-    object_path = "/mounts/work/philipp/lama/data/TREx_multilingual/objects/" + language + ".json"
     with open(object_path) as f:
         candidates = json.load(f)
 
@@ -57,7 +70,7 @@ def run_experiments(
             "common_vocab_filename": None,
             "template": "",
             "bert_vocab_name": "vocab.txt",
-            "batch_size": 100,
+            "batch_size": 1,
             "logdir": "output",
             "full_logdir": "output/results/{}/{}/{}".format(
                 input_param["label"], language, relation["relation"]
@@ -171,7 +184,13 @@ if __name__ == "__main__":
         for line in f:
             languages.append(line.strip())
 
+    languages = ["hu", "ur","hy","sr","ms","bn","es","he","et","nl","eu","ga","fr","sq","sv","hi","hr","ru","el","it","tr","fa","uk","ar","en","az", "ca"]
+    languages = ["fa","uk","ar","en","az", "ca"]
+    languages = languages[::-1]
     print("Multilingual")
     for l in languages:
-       parameters = get_MultiLingual_parameters(language=l)
-       run_all_LMs(parameters)
+        #if not os.path.isdir("output/results/mbert_base/" + l):
+        parameters = get_MultiLingual_parameters(language=l)
+        run_all_LMs(parameters)
+        #parameters = get_MultiLingual_parameters_GoogleRe(language=l)
+        #run_all_LMs(parameters)

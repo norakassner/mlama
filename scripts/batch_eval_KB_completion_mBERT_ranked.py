@@ -4,23 +4,23 @@
 # This source code is licensed under the license found in the
 # LICENSE file in the root directory of this source tree.
 #
-from lama.modules import build_model_by_name
-import lama.utils as utils
-from lama.utils import print_sentence_predictions, load_vocab
-import lama.options as options
+from mlama.modules import build_model_by_name
+import mlama.utils as utils
+from mlama.utils import print_sentence_predictions, load_vocab
+import mlama.options as options
 from tqdm import tqdm
 from random import shuffle
 import os
 import json
 import spacy
-import lama.modules.base_connector as base
+import mlama.modules.base_connector as base
 from pprint import pprint
 import logging.config
 import logging
 import pickle
 from multiprocessing.pool import ThreadPool
 import multiprocessing
-import lama.evaluation_metrics_ranked as metrics
+import mlama.evaluation_metrics_ranked as metrics
 import time, sys
 
 
@@ -238,7 +238,7 @@ def main(args, NUM_MASK, candidates, shuffle_data=True, model=None):
 
     [model_type_name] = args.models_names
 
-    print(model)
+    #print(model)
     if model is None:
         model = build_model_by_name(model_type_name, args)
 
