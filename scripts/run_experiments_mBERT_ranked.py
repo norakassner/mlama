@@ -28,16 +28,6 @@ LMs = [
 ]
 
 
-"""LMs = [
-    {
-        "lm": "bert",
-        "label": "bert_base",
-        "models_names": ["bert"],
-        "bert_model_name": "bert-base-cased",
-        "bert_model_dir": None
-    },
-]"""
-
 def run_experiments(
     relations,
     data_path_pre,
