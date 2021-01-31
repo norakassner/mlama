@@ -44,7 +44,7 @@ def run_experiments(
     model = None
     pp = pprint.PrettyPrinter(width=41, compact=True)
     if "P" in relations[0]["relation"]:
-        object_path = "./data/TREx_multilingual/objects/" + language + ".json"
+        object_path = "./data/TREx_multilingual_objects/" + language + ".json"
     else:
         object_path = "./data/GoogleRE_objects/" + language + ".json"
 
