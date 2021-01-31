@@ -49,8 +49,6 @@ ml.load()
 
 ## Reference:
 
-The original LAMA probe is described in the following paper:
-
 ```bibtex
 @inproceedings{kassner2021multilingual,
     title = "Multilingual {LAMA}: Investigating Knowledge in Multilingual Pretrained Language Models",
