@@ -16,7 +16,6 @@ for lang in languages:
   P_all_eng = []
   total_all = []
   relations = list(os.walk(output_path + lang + "/"))[0][1:-1][0]
-  print(len(relations))
   for relation in relations:
        if "date" in relation:
            continue
