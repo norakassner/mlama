@@ -11,13 +11,12 @@ import scipy
 
 def __max_probs_values_indices(masked_indices, log_probs, topk=1000):
 
-    #masked_indices = masked_indices[:1]
     masked_index = masked_indices
 
     objects = candidates[len(masked_index)]
 
     log_probs = log_probs[masked_index]
-    #print(len(log_probs))
+
     value_max_probs, index_max_probs = torch.topk(input=log_probs,k=topk,dim=1)
     index_max_probs = index_max_probs.numpy().astype(int)
     value_max_probs = value_max_probs.detach().numpy()
@@ -31,7 +30,7 @@ def __print_top_k(value_max_probs, index_max_probs, vocab, mask_topk, index_list
     for i in range(mask_topk):
         idx_joined = []
         word_form_joined = []
-        #print(len(value_max_probs))
+
         for n_mask in range(len(value_max_probs)):
             filtered_idx = index_max_probs[n_mask][i].item()
 
@@ -80,16 +79,12 @@ def get_ranking(log_probs, sample, masked_indices, vocab, candidates, label_inde
     experiment_result = {}
     dict_probs = {}
     return_msg = ""
-    objects_true = sample[0]["obj_label"]
+    objects_true = sample["obj_label"]
     for i, num_masks in enumerate(candidates):
         predictions = log_probs[i][masked_indices[i]]
         for object in candidates[num_masks]:
             probs = []
             for id, prediction in zip(candidates[num_masks][object], predictions):
-                """if object =="Germany":
-                    print(prediction[id])
-                    print(id)
-                    input("")"""
                 probs.append(prediction[id])
             dict_probs[object] = np.mean(probs)
     object_keys = np.array(list(dict_probs.keys()))

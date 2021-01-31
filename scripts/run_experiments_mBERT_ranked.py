@@ -60,7 +60,7 @@ def run_experiments(
             "common_vocab_filename": None,
             "template": "",
             "bert_vocab_name": "vocab.txt",
-            "batch_size": 1,
+            "batch_size": 16,
             "logdir": "output",
             "full_logdir": "output/results/{}/{}/{}".format(
                 input_param["label"], language, relation["relation"]
@@ -134,7 +134,7 @@ def get_GoogleRE_parameters():
     return relations, data_path_pre, data_path_post
 
 
-def get_MultiLingual_parameters_TREx(data_path_pre="./data/TREx_multilingual/", language=""):
+def get_MultiLingual_parameters_TREx(data_path_pre="/mounts/work/philipp/lama/data/TREx_multilingual/", language=""):
     relations = load_file("{}templates/relations_{}.jsonl".format(data_path_pre, language))
     data_path_pre += language + "/"
     data_path_post = ".jsonl"

@@ -22,7 +22,8 @@ from multiprocessing.pool import ThreadPool
 import multiprocessing
 import mlama.evaluation_metrics_ranked as metrics
 import time, sys
-
+import torch
+import numpy as np
 
 def load_file(filename):
     data = []
@@ -131,7 +132,7 @@ def run_thread(arguments):
         label_index=arguments["label_index"],
         index_list=arguments["index_list"],
         print_generation=arguments["interactive"],
-        topk=100,
+        topk=10,
     )
     msg += "\n" + return_msg
 
@@ -238,7 +239,6 @@ def main(args, NUM_MASK, candidates, shuffle_data=True, model=None):
 
     [model_type_name] = args.models_names
 
-    #print(model)
     if model is None:
         model = build_model_by_name(model_type_name, args)
 
@@ -356,18 +356,17 @@ def main(args, NUM_MASK, candidates, shuffle_data=True, model=None):
     for i in tqdm(range(len(samples_batches))):
 
         samples_b = samples_batches[i]
-        print(samples_b)
-        # sentences_b = sentences_batches[i]
-        masked_sentences = []
         sentences_b = []
-        for num_mask in range(1, NUM_MASK+1):
-            for sentence in samples_b[0]["masked_sentences"]:
+        current_batch_size = len(samples_b)
+        for i, sample in enumerate(samples_b):
+            masked_sentences = []
+            for num_mask in range(1, NUM_MASK+1):
+                sentence = sample["masked_sentences"][0]
                 sentence = sentence.replace(base.MASK, base.MASK * num_mask)
                 sentence = sentence.replace("][", "] [")
                 masked_sentences.append(sentence)
                 sentences_b.append([sentence])
-        samples_b[0]["masked_sentences"] = masked_sentences
-
+            samples_b[i]["masked_sentences"] = masked_sentences
         (
             original_log_probs_list,
             token_ids_list,
@@ -396,21 +395,29 @@ def main(args, NUM_MASK, candidates, shuffle_data=True, model=None):
 
             label_index_list.append(obj_label_id)
 
+        dim_reshape = (current_batch_size, int(original_log_probs_list.shape[0]/current_batch_size), original_log_probs_list.shape[1], original_log_probs_list.shape[2])
+        original_log_probs_list = torch.reshape(original_log_probs_list, dim_reshape)
+        filtered_log_probs_list = torch.reshape(filtered_log_probs_list, dim_reshape)
+        print("idcs batch: ", masked_indices_list)
+
+        masked_indices_list = np.reshape(np.array(masked_indices_list), (current_batch_size, int(len(masked_indices_list)/current_batch_size)))
+        print("idcs batch: ", masked_indices_list)
+        print("")
         arguments = [
             {
-                "original_log_probs": original_log_probs_list,
-                "filtered_log_probs": filtered_log_probs_list,
-                "token_ids": token_ids_list[0],
+                "original_log_probs": original_log_probs,
+                "filtered_log_probs": filtered_log_probs,
+                "token_ids": token_ids,
                 "vocab": model.vocab,
-                "label_index": label_index_list[0],
-                "masked_indices": masked_indices_list,
+                "label_index": label_index,
+                "masked_indices": masked_indices,
                 "interactive": args.interactive,
                 "index_list": index_list,
                 "sample": sample,
                 "candidates": candidates,
             }
-            for sample in zip(
-                samples_b,
+            for sample, original_log_probs, filtered_log_probs, token_ids, label_index, masked_indices in zip(
+                samples_b, original_log_probs_list, filtered_log_probs_list, token_ids_list, label_index_list, masked_indices_list,
             )
         ]
 
