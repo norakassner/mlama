@@ -398,11 +398,8 @@ def main(args, NUM_MASK, candidates, shuffle_data=True, model=None):
         dim_reshape = (current_batch_size, int(original_log_probs_list.shape[0]/current_batch_size), original_log_probs_list.shape[1], original_log_probs_list.shape[2])
         original_log_probs_list = torch.reshape(original_log_probs_list, dim_reshape)
         filtered_log_probs_list = torch.reshape(filtered_log_probs_list, dim_reshape)
-        print("idcs batch: ", masked_indices_list)
 
         masked_indices_list = np.reshape(np.array(masked_indices_list), (current_batch_size, int(len(masked_indices_list)/current_batch_size)))
-        print("idcs batch: ", masked_indices_list)
-        print("")
         arguments = [
             {
                 "original_log_probs": original_log_probs,

@@ -60,7 +60,7 @@ def run_experiments(
             "common_vocab_filename": None,
             "template": "",
             "bert_vocab_name": "vocab.txt",
-            "batch_size": 16,
+            "batch_size": 8,
             "logdir": "output",
             "full_logdir": "output/results/{}/{}/{}".format(
                 input_param["label"], language, relation["relation"]
