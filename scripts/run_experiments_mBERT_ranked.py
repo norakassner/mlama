@@ -52,8 +52,6 @@ def run_experiments(
         candidates = json.load(f)
 
     for relation in relations:
-        if "P463" not in relation["relation"]:
-            continue
         pp.pprint(relation)
         PARAMETERS = {
             "dataset_filename": "{}{}{}".format(
@@ -136,7 +134,7 @@ def get_GoogleRE_parameters():
     return relations, data_path_pre, data_path_post
 
 
-def get_MultiLingual_parameters_TREx(data_path_pre="/mounts/work/philipp/lama/data/TREx_multilingual/", language=""):
+def get_MultiLingual_parameters_TREx(data_path_pre="./data/TREx_multilingual/", language=""):
     relations = load_file("{}templates/relations_{}.jsonl".format(data_path_pre, language))
     data_path_pre += language + "/"
     data_path_post = ".jsonl"
@@ -171,19 +169,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-"""if __name__ == "__main__":
-
-    languages = []
-    with open("languages.txt", "r") as f:
-        for line in f:
-            languages.append(line.strip())
-
-    print("Multilingual")
-    #for l in languages:
-    l = "fr"
-    parameters = get_MultiLingual_parameters_TREx(language=l)
-    run_all_LMs(parameters)
-    parameters = get_MultiLingual_parameters_GoogleRe(language=l)
-    run_all_LMs(parameters)"""
