@@ -75,16 +75,24 @@ def get_prediction(log_probs, masked_indices, vocab, label_index = None, index_l
     return result_masked_topk, return_msg
 
 
-def get_ranking(log_probs, sample, masked_indices, vocab, candidates, label_index = None, index_list = None, topk = 1000, P_AT = 10, print_generation=True):
+def get_ranking(log_probs, sample, masked_indices, vocab, candidates, label_index = None, index_list = None, topk = 10, P_AT = 10, print_generation=True):
     experiment_result = {}
     dict_probs = {}
     return_msg = ""
     objects_true = sample["obj_label"]
+
     for i, num_masks in enumerate(candidates):
-        predictions = log_probs[i][masked_indices[i]]
+        if len(masked_indices) >1:
+            masked_idx = masked_indices[i]
+        else:
+            masked_idx = [masked_indices[i]]
+        predictions = log_probs[i][masked_idx]
+
         for object in candidates[num_masks]:
             probs = []
             for id, prediction in zip(candidates[num_masks][object], predictions):
+                #print(id)
+                #print("pred", prediction)
                 probs.append(prediction[id])
             dict_probs[object] = np.mean(probs)
     object_keys = np.array(list(dict_probs.keys()))

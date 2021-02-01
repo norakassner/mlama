@@ -33,7 +33,7 @@ rm data.zip
 ### 3. Run the experiments
 
 ```bash
-python scripts/run_experiments_mBERT_ranked.py 
+python scripts/run_experiments_mBERT_ranked.py --lang "fr"
 python scripts/eval.py
 ```
 

@@ -52,6 +52,8 @@ def run_experiments(
         candidates = json.load(f)
 
     for relation in relations:
+        if "P463" not in relation["relation"]:
+            continue
         pp.pprint(relation)
         PARAMETERS = {
             "dataset_filename": "{}{}{}".format(
@@ -60,7 +62,7 @@ def run_experiments(
             "common_vocab_filename": None,
             "template": "",
             "bert_vocab_name": "vocab.txt",
-            "batch_size": 8,
+            "batch_size": 4,
             "logdir": "output",
             "full_logdir": "output/results/{}/{}/{}".format(
                 input_param["label"], language, relation["relation"]
@@ -154,7 +156,24 @@ def run_all_LMs(parameters):
         run_experiments(*parameters, input_param=ip)
 
 
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--lang', '-l', type=str, default="fr", help='language')
+
+    args = parser.parse_args()
+
+    l = args.lang
+    parameters = get_MultiLingual_parameters_TREx(language=l)
+    run_all_LMs(parameters)
+    parameters = get_MultiLingual_parameters_GoogleRe(language=l)
+    run_all_LMs(parameters)
+
+
 if __name__ == "__main__":
+    main()
+
+
+"""if __name__ == "__main__":
 
     languages = []
     with open("languages.txt", "r") as f:
@@ -162,8 +181,9 @@ if __name__ == "__main__":
             languages.append(line.strip())
 
     print("Multilingual")
-    for l in languages:
-        parameters = get_MultiLingual_parameters_TREx(language=l)
-        run_all_LMs(parameters)
-        parameters = get_MultiLingual_parameters_GoogleRe(language=l)
-        run_all_LMs(parameters)
+    #for l in languages:
+    l = "fr"
+    parameters = get_MultiLingual_parameters_TREx(language=l)
+    run_all_LMs(parameters)
+    parameters = get_MultiLingual_parameters_GoogleRe(language=l)
+    run_all_LMs(parameters)"""
