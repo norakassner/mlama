@@ -55,7 +55,7 @@ ml.load()
     author = {Kassner, Nora  and
       Dufter, Philipp  and
       Sch{\"u}tze, Hinrich},
-    booktitle = "to appear in Proceedings of he 16th Conference of the European Chapter of the Association for Computational Linguistics",
+    booktitle = "to appear in Proceedings of the 16th Conference of the European Chapter of the Association for Computational Linguistics",
     year = "2021",
     address = "Online",
     publisher = "Association for Computational Linguistics",
