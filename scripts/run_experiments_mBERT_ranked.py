@@ -134,18 +134,18 @@ def get_GoogleRE_parameters():
     return relations, data_path_pre, data_path_post
 
 
-def get_MultiLingual_parameters_TREx(data_path_pre="./data/TREx_multilingual/", language=""):
+def get_MultiLingual_parameters(data_path_pre="./data/mlama1.1/", language=""):
     relations = load_file("{}/{}/templates.jsonl".format(data_path_pre, language))
     data_path_pre += language + "/"
     data_path_post = ".jsonl"
     return relations, data_path_pre, data_path_post, language
 
 
-def get_MultiLingual_parameters_GoogleRe(data_path_pre="./data/Google_RE_multilingual/", language=""):
-    relations = load_file("{}/{}/templates.jsonl".format(data_path_pre, language))
+"""def get_MultiLingual_parameters_GoogleRe(data_path_pre="./data/", language=""):
+    relations = load_file("{}/templates.jsonl".format(data_path_pre, language))
     data_path_pre += language + "/"
     data_path_post = "_test.jsonl"
-    return relations, data_path_pre, data_path_post, language
+    return relations, data_path_pre, data_path_post, language"""
 
 
 def run_all_LMs(parameters):
@@ -161,11 +161,9 @@ def main():
     args = parser.parse_args()
 
     l = args.lang
-    parameters = get_MultiLingual_parameters_TREx(language=l)
+    print(l)
+    parameters = get_MultiLingual_parameters(language=l)
     run_all_LMs(parameters)
-    parameters = get_MultiLingual_parameters_GoogleRe(language=l)
-    run_all_LMs(parameters)
-
 
 if __name__ == "__main__":
     main()
