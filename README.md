@@ -27,7 +27,8 @@ export PYTHONPATH=${PYTHONPATH}:/path-to-project
 ```bash
 wget http://cistern.cis.lmu.de/mlama/mlama1.1.zip
 unzip mlama1.1.zip
-rm data.zip
+rm mlama1.1.zip
+mv mlama1.1 data/mlama1.1/
 ```
 
 ### 3. Run the experiments
