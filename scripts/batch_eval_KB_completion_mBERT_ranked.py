@@ -182,10 +182,10 @@ def filter_samples(model, samples, vocab_subset, max_sentence_length, template):
                     )
                     samples_exluded += 1
                     excluded = True
-            if sample['from_english']:
+            """if sample['from_english']:
                 msg += "\tEXCLUDED not in language \n"
                 excluded = True
-                samples_exluded += 1
+                samples_exluded += 1"""
             # MAKE SURE THAT obj_label IS IN VOCABULARIES
             if vocab_subset:
                 for x in sample["obj_label"].split(" "):
