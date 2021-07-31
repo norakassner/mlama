@@ -135,14 +135,14 @@ def get_GoogleRE_parameters():
 
 
 def get_MultiLingual_parameters_TREx(data_path_pre="./data/TREx_multilingual/", language=""):
-    relations = load_file("{}templates/relations_{}.jsonl".format(data_path_pre, language))
+    relations = load_file("{}/{}/templates.jsonl".format(data_path_pre, language))
     data_path_pre += language + "/"
     data_path_post = ".jsonl"
     return relations, data_path_pre, data_path_post, language
 
 
 def get_MultiLingual_parameters_GoogleRe(data_path_pre="./data/Google_RE_multilingual/", language=""):
-    relations = load_file("{}templates/relations_{}.jsonl".format(data_path_pre, language))
+    relations = load_file("{}/{}/templates.jsonl".format(data_path_pre, language))
     data_path_pre += language + "/"
     data_path_post = "_test.jsonl"
     return relations, data_path_pre, data_path_post, language
