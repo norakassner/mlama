@@ -1,6 +1,6 @@
 # mLAMA: multilingual LAnguage Model Analysis
 
-This repository contains code for the EACL 2021 paper ["Multilingual LAMA: Investigating Knowledge in Multilingual Pretrained Language Models"](xxx).
+This repository contains code for the EACL 2021 paper ["Multilingual LAMA: Investigating Knowledge in Multilingual Pretrained Language Models"](https://arxiv.org/abs/2102.00894).
 It extends the original LAMA probe to the multilingual setting, e.g. it probes knowledge in pre-trained language models in a multilingual setting.
 
 The repository is forked from https://github.com/facebookresearch/LAMA and adapted accordingly. 
