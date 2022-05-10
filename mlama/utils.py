@@ -8,7 +8,7 @@ import torch
 from colorama import init
 from termcolor import colored
 import numpy as np
-import lama.modules.base_connector as base
+import mlama.modules.base_connector as base
 
 
 def __exclude_tokens(token_ids, vocab):
