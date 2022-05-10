@@ -8,7 +8,7 @@ import torch
 import pytorch_pretrained_bert.tokenization as btok
 from pytorch_pretrained_bert import BertTokenizer, BertForMaskedLM, BasicTokenizer, BertModel
 import numpy as np
-from lama.modules.base_connector import *
+from mlama.modules.base_connector import *
 import torch.nn.functional as F
 
 
