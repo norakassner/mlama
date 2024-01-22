@@ -76,3 +76,7 @@ ml.load()
 * [https://github.com/allenai/allennlp](https://github.com/allenai/allennlp)
 * [https://github.com/pytorch/fairseq](https://github.com/pytorch/fairseq)
 * https://github.com/facebookresearch/LAMA
+
+## Licence
+
+mLAMA is licensed under the CC-BY-NC 4.0 license. The text of the license can be found [here](LICENSE).
